@@ -35,21 +35,14 @@ sudo chmod 600 ~/.kube/config
 sudo chown $USER:$USER ~/.kube/config
 ```
 
-## Known issues
+### Check kubelet status
 
-### CoreDNS fail to boot
+To ensure kubelet is properly working, you can issue the following command.
 
-If `kubectl get nodes` get stuck in state not ready, coredns pods are probably stucks.
-If this is the case :
+```
+kubectl get pods -n kube-system
+```
 
-1. probably this will fix
+If all pods are ready and with status running, then everything is fine.
 
-* kubectl edit cm coredns -n kube-system
-* delete `loop`, save and exit
-* reboot!
-
-
-2. or maybe this...
-
-Edit `/var/lib/kubelet/kubeadm-flags.env` and remove the flag `--network-plugin=cni`.
-Then reboot!
+**Note**: coredns will remains in pending state until a network solution is deployed. (See: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/troubleshooting-kubeadm/)
