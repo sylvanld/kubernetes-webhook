@@ -35,7 +35,12 @@ sudo chmod 600 ~/.kube/config
 sudo chown $USER:$USER ~/.kube/config
 ```
 
-## If coredns fail to boot
+## Known issues
+
+### CoreDNS fail to boot
+
+If `kubectl get nodes` get stuck in state not ready, coredns pods are probably stucks.
+If this is the case :
 
 1. probably this will fix
 
