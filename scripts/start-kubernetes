@@ -1,0 +1,3 @@
+#!/bin/bash
+
+kubeadm init --config kubelet_config.yaml --v=5
