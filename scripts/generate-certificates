@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Configuration variables
+MASTER_IP=192.168.56.116
+
+PKI_FOLDER=pki
+KEY_SIZE=2048
+
+# Clear previous certificates
+rm -rf $PKI_FOLDER
+mkdir -p $PKI_FOLDER
+
+# Generate key for certification authority
+openssl genrsa -out $PKI_FOLDER/ca.key $KEY_SIZE
+# Generate certification authority's own certificate
+openssl req -x509 -new -nodes -key $PKI_FOLDER/ca.key -subj "/C=FR/ST=France/L=Rennes/O=Orange/OU=OLS/CN=orange.com" -days 10000 -out $PKI_FOLDER/ca.crt
+
+# Generate api server key
+openssl genrsa -out $PKI_FOLDER/server.key $KEY_SIZE
+# Generate certificate signing request for server certificate
+openssl req -new -key $PKI_FOLDER/server.key -out $PKI_FOLDER/server.csr -config ssl.conf
+# Generate the server certificate from signing request
+openssl x509 -req -in $PKI_FOLDER/server.csr -CA $PKI_FOLDER/ca.crt -CAkey $PKI_FOLDER/ca.key \
+    -CAcreateserial -out $PKI_FOLDER/server.crt -days 10000 -extensions v3_ext -extfile ssl.conf
+
+# Generate moon kubernetes PDP key
+openssl genrsa -out $PKI_FOLDER/moon-pdp.key $KEY_SIZE
+# Generate certificate signing request for moon kubernetes PDP certificate
+openssl req -new -key $PKI_FOLDER/moon-pdp.key -out $PKI_FOLDER/moon-pdp.csr -config ssl.conf
+# Generate the moon kubernetes PDP certificate from signing request
+openssl x509 -req -in $PKI_FOLDER/moon-pdp.csr -CA $PKI_FOLDER/ca.crt -CAkey $PKI_FOLDER/ca.key \
+    -CAcreateserial -out $PKI_FOLDER/moon-pdp.crt -days 10000 -extensions v3_ext -extfile ssl.conf
