@@ -1,3 +1,14 @@
+# Study implementation of a kubernetes webhook
+
+- [Setup a kubernetes single-node cluster](#setup-a-kubernetes-single-node-cluster)
+  - [Install and run kubernetes](#install-and-run-kubernetes)
+  - [Configure kubectl to access the cluster](#configure-kubectl-to-access-the-cluster)
+  - [Check kubelet status](#check-kubelet-status)
+- [Configure WebHook](#configure-webhook)
+  - [Generate certificates](#generate-certificates)
+  - [Create mount point in apiserver](#create-mount-point-in-apiserver)
+  - [Configure apiserver certificates](#configure-apiserver-certificates)
+  - [Configure Authorization mode](#configure-authorization-mode)
 
 ## Setup a kubernetes single-node cluster
 
