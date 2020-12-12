@@ -1,0 +1,2401 @@
+{
+    "kind": "ClusterRoleBindingList",
+    "apiVersion": "rbac.authorization.k8s.io/v1beta1",
+    "metadata": {
+        "resourceVersion": "7447"
+    },
+    "items": [
+        {
+            "metadata": {
+                "name": "cluster-admin",
+                "uid": "a3308052-c3ec-49a6-9909-15b6e7e92fb8",
+                "resourceVersion": "144",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "Group",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:masters"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "cluster-admin"
+            }
+        },
+        {
+            "metadata": {
+                "name": "kubeadm:get-nodes",
+                "uid": "2dd0e3b9-cfb2-4a45-b63d-5dcb72c51a25",
+                "resourceVersion": "218",
+                "creationTimestamp": "2020-12-11T19:06:35Z",
+                "managedFields": [
+                    {
+                        "manager": "kubeadm",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:35Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "Group",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:bootstrappers:kubeadm:default-node-token"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "kubeadm:get-nodes"
+            }
+        },
+        {
+            "metadata": {
+                "name": "kubeadm:kubelet-bootstrap",
+                "uid": "31367159-2c49-406d-be3d-03c6083e68e0",
+                "resourceVersion": "219",
+                "creationTimestamp": "2020-12-11T19:06:35Z",
+                "managedFields": [
+                    {
+                        "manager": "kubeadm",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:35Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "Group",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:bootstrappers:kubeadm:default-node-token"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:node-bootstrapper"
+            }
+        },
+        {
+            "metadata": {
+                "name": "kubeadm:node-autoapprove-bootstrap",
+                "uid": "85145901-7d65-4379-9424-981cb6f42fd4",
+                "resourceVersion": "220",
+                "creationTimestamp": "2020-12-11T19:06:35Z",
+                "managedFields": [
+                    {
+                        "manager": "kubeadm",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:35Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "Group",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:bootstrappers:kubeadm:default-node-token"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:certificates.k8s.io:certificatesigningrequests:nodeclient"
+            }
+        },
+        {
+            "metadata": {
+                "name": "kubeadm:node-autoapprove-certificate-rotation",
+                "uid": "48dbcab9-551a-405b-9748-dd78a602a8a1",
+                "resourceVersion": "221",
+                "creationTimestamp": "2020-12-11T19:06:35Z",
+                "managedFields": [
+                    {
+                        "manager": "kubeadm",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:35Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "Group",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:nodes"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:certificates.k8s.io:certificatesigningrequests:selfnodeclient"
+            }
+        },
+        {
+            "metadata": {
+                "name": "kubeadm:node-proxier",
+                "uid": "3bb242e6-4bc5-4201-ab1d-cc6b6af8829c",
+                "resourceVersion": "258",
+                "creationTimestamp": "2020-12-11T19:06:36Z",
+                "managedFields": [
+                    {
+                        "manager": "kubeadm",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:36Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "kube-proxy",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:node-proxier"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:basic-user",
+                "uid": "4f0c998a-972f-402a-a576-602fe241a1ce",
+                "resourceVersion": "147",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "Group",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:authenticated"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:basic-user"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:attachdetach-controller",
+                "uid": "6a68b00d-442d-4b97-8f52-de33417e79a5",
+                "resourceVersion": "156",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "attachdetach-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:attachdetach-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:certificate-controller",
+                "uid": "bb9b23b1-c20f-41d3-8ad2-d06a30f779dd",
+                "resourceVersion": "181",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "certificate-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:certificate-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:clusterrole-aggregation-controller",
+                "uid": "a2e26318-a89b-4761-9f5d-0af952f29cfe",
+                "resourceVersion": "157",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "clusterrole-aggregation-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:clusterrole-aggregation-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:cronjob-controller",
+                "uid": "2b7ee82f-34a9-4d23-96b9-206f9d6712fd",
+                "resourceVersion": "158",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "cronjob-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:cronjob-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:daemon-set-controller",
+                "uid": "2911c083-42c2-46e2-a5a3-5fa22e660d87",
+                "resourceVersion": "159",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "daemon-set-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:daemon-set-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:deployment-controller",
+                "uid": "8bd2b6cf-b03c-47af-ac3d-925734e79c8e",
+                "resourceVersion": "160",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "deployment-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:deployment-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:disruption-controller",
+                "uid": "04b884af-0603-45d9-a51d-6c8f7c6592c3",
+                "resourceVersion": "161",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "disruption-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:disruption-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:endpoint-controller",
+                "uid": "2b604ffd-31c5-403a-b602-4057582f8795",
+                "resourceVersion": "162",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "endpoint-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:endpoint-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:endpointslice-controller",
+                "uid": "ed7129c4-c43d-45da-973e-36218bdecb7c",
+                "resourceVersion": "163",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "endpointslice-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:endpointslice-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:endpointslicemirroring-controller",
+                "uid": "e63f6967-57fd-4cbc-bc40-7c9f2b6ea72f",
+                "resourceVersion": "164",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "endpointslicemirroring-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:endpointslicemirroring-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:expand-controller",
+                "uid": "d9855bff-f989-4849-8e1d-ff72b8292aa0",
+                "resourceVersion": "165",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "expand-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:expand-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:generic-garbage-collector",
+                "uid": "dce1b8f4-70e5-4396-b904-4968e01cdbc7",
+                "resourceVersion": "166",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "generic-garbage-collector",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:generic-garbage-collector"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:horizontal-pod-autoscaler",
+                "uid": "a485b888-cf54-43ec-bc6b-00d42757cee6",
+                "resourceVersion": "167",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "horizontal-pod-autoscaler",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:horizontal-pod-autoscaler"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:job-controller",
+                "uid": "d1c3a40c-ee61-4aea-925f-840411ecae27",
+                "resourceVersion": "168",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "job-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:job-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:namespace-controller",
+                "uid": "34b618c3-a40f-42dc-b488-604dc2f12c2d",
+                "resourceVersion": "169",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "namespace-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:namespace-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:node-controller",
+                "uid": "46934096-7867-46f7-b278-6347e5d62fa6",
+                "resourceVersion": "170",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "node-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:node-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:persistent-volume-binder",
+                "uid": "85b38ffe-f496-4e2d-b9c0-fc35fb09a027",
+                "resourceVersion": "171",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "persistent-volume-binder",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:persistent-volume-binder"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:pod-garbage-collector",
+                "uid": "632d4e2a-96c5-44ef-8c7f-a3e2948e48ff",
+                "resourceVersion": "172",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "pod-garbage-collector",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:pod-garbage-collector"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:pv-protection-controller",
+                "uid": "0fb71800-30f3-4284-baa8-92ffa680b001",
+                "resourceVersion": "183",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "pv-protection-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:pv-protection-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:pvc-protection-controller",
+                "uid": "39c36971-db37-4ef2-9039-868477485e6e",
+                "resourceVersion": "182",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "pvc-protection-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:pvc-protection-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:replicaset-controller",
+                "uid": "b58934c8-f3b6-4ed1-8ae3-78ff925efe71",
+                "resourceVersion": "173",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "replicaset-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:replicaset-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:replication-controller",
+                "uid": "43884f73-e28d-4df9-9393-85fba9e8b2ba",
+                "resourceVersion": "174",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "replication-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:replication-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:resourcequota-controller",
+                "uid": "cb2d6d53-b169-42a3-9fc6-b40d8df98fb7",
+                "resourceVersion": "175",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "resourcequota-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:resourcequota-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:root-ca-cert-publisher",
+                "uid": "191de937-899d-4576-91b2-6c6b7a327f5e",
+                "resourceVersion": "184",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "root-ca-cert-publisher",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:root-ca-cert-publisher"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:route-controller",
+                "uid": "c400864a-ac38-42b3-826e-d1001ef5509c",
+                "resourceVersion": "176",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "route-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:route-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:service-account-controller",
+                "uid": "4c2b42a0-d528-4745-a5e9-d6b0cd7163bb",
+                "resourceVersion": "177",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "service-account-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:service-account-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:service-controller",
+                "uid": "7a9c4776-daee-43bc-a81a-0cab1e8d9da0",
+                "resourceVersion": "178",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "service-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:service-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:statefulset-controller",
+                "uid": "716508e3-1bbf-4ac5-8e6b-a66311c159f8",
+                "resourceVersion": "179",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "statefulset-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:statefulset-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:controller:ttl-controller",
+                "uid": "f454628e-9548-4fd3-9eaa-9eec6a506c09",
+                "resourceVersion": "180",
+                "creationTimestamp": "2020-12-11T19:06:34Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:34Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "ttl-controller",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:controller:ttl-controller"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:coredns",
+                "uid": "4812f0ca-d346-445f-8aca-dd6b188ebd6f",
+                "resourceVersion": "233",
+                "creationTimestamp": "2020-12-11T19:06:36Z",
+                "managedFields": [
+                    {
+                        "manager": "kubeadm",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:36Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "coredns",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:coredns"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:discovery",
+                "uid": "ebb8a50e-c03a-44c7-ad15-5366030099d4",
+                "resourceVersion": "146",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "Group",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:authenticated"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:discovery"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:kube-controller-manager",
+                "uid": "8a08c2ed-eb21-4fc6-934e-c52af669a4c7",
+                "resourceVersion": "150",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "User",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:kube-controller-manager"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:kube-controller-manager"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:kube-dns",
+                "uid": "14ead4f9-e5cd-4ea2-8e90-297dd9b4cb04",
+                "resourceVersion": "151",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "ServiceAccount",
+                    "name": "kube-dns",
+                    "namespace": "kube-system"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:kube-dns"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:kube-scheduler",
+                "uid": "090c8a18-1a71-44ae-aab2-67d7517f29bb",
+                "resourceVersion": "152",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "User",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:kube-scheduler"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:kube-scheduler"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:monitoring",
+                "uid": "f534bc4e-01fe-4b8b-9e6f-5e4c1e753f97",
+                "resourceVersion": "145",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "Group",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:monitoring"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:monitoring"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:node",
+                "uid": "a314866c-26ad-4503-b333-348e1e5cd286",
+                "resourceVersion": "154",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            }
+                        }
+                    }
+                ]
+            },
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:node"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:node-proxier",
+                "uid": "0cb9066c-db80-490f-ab7a-3ad370ba0d0c",
+                "resourceVersion": "149",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "User",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:kube-proxy"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:node-proxier"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:public-info-viewer",
+                "uid": "28681f98-9c03-4858-b45c-c1d5cb4d7cc8",
+                "resourceVersion": "148",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "Group",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:authenticated"
+                },
+                {
+                    "kind": "Group",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:unauthenticated"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:public-info-viewer"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:service-account-issuer-discovery",
+                "uid": "b7ad9625-76ea-49bb-b3af-d848f0b43b82",
+                "resourceVersion": "155",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "Group",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:serviceaccounts"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:service-account-issuer-discovery"
+            }
+        },
+        {
+            "metadata": {
+                "name": "system:volume-scheduler",
+                "uid": "c20f4782-c593-4eb6-8224-0e72b8037ef7",
+                "resourceVersion": "153",
+                "creationTimestamp": "2020-12-11T19:06:33Z",
+                "labels": {
+                    "kubernetes.io/bootstrapping": "rbac-defaults"
+                },
+                "annotations": {
+                    "rbac.authorization.kubernetes.io/autoupdate": "true"
+                },
+                "managedFields": [
+                    {
+                        "manager": "kube-apiserver",
+                        "operation": "Update",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "time": "2020-12-11T19:06:33Z",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:rbac.authorization.kubernetes.io/autoupdate": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:kubernetes.io/bootstrapping": {}
+                                }
+                            },
+                            "f:roleRef": {
+                                "f:apiGroup": {},
+                                "f:kind": {},
+                                "f:name": {}
+                            },
+                            "f:subjects": {}
+                        }
+                    }
+                ]
+            },
+            "subjects": [
+                {
+                    "kind": "User",
+                    "apiGroup": "rbac.authorization.k8s.io",
+                    "name": "system:kube-scheduler"
+                }
+            ],
+            "roleRef": {
+                "apiGroup": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "system:volume-scheduler"
+            }
+        }
+    ]
+}
