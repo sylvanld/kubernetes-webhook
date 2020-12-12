@@ -46,3 +46,15 @@ kubectl get pods -n kube-system
 If all pods are ready and with status running, then everything is fine.
 
 **Note**: coredns will remains in pending state until a network solution is deployed. (See: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/troubleshooting-kubeadm/)
+
+# TODO
+
+* document how to create a signed certificate for client
+
+cf https://wiki.archlinux.org/index.php/Easy-RSA
+
+* document how to mount a volume in apiserver pod
+
+(required to use --webhook-config-file... and access certificate declared in webhook config)
+
+https://kubernetes.io/fr/docs/concepts/storage/volumes/

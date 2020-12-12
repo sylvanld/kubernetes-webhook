@@ -7,16 +7,18 @@ clusters:
   - name: name-of-remote-authz-service
     cluster:
       # CA for verifying the remote service.
-      certificate-authority: /path/to/ca.pem
+      certificate-authority: /etc/kube-webhook/pki/ca.crt
       # URL of remote service to query. Must use 'https'. May not include parameters.
-      server: https://authz.example.com/authorize
+      server: https://192.168.56.116:8005
 
 # users refers to the API Server's webhook configuration.
 users:
   - name: name-of-api-server
     user:
-      client-certificate: /path/to/cert.pem # cert for the webhook plugin to use
-      client-key: /path/to/key.pem          # key matching the cert
+      # cert for the webhook plugin to use
+      client-certificate: /etc/kube-webhook/pki/moon-pdp.crt
+      # key matching the cert
+      client-key: /etc/kube-webhook/pki/moon-pdp.key
 
 # kubeconfig files require a context. Provide one for the API Server.
 current-context: webhook
