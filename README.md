@@ -9,7 +9,6 @@
   - [Create mount point in apiserver](#create-mount-point-in-apiserver)
   - [Configure apiserver certificates](#configure-apiserver-certificates)
   - [Configure Authorization mode](#configure-authorization-mode)
-  - [Configure kubectl to access your cluster](#configure-kubectl-to-access-your-cluster)
 - [Sources](#sources)
 
 ## Setup a kubernetes single-node cluster
@@ -38,14 +37,11 @@ sudo scripts/install-kubernetes
 
 ### Configure kubectl to access the cluster
 
-You must copy cluster configuration to `~/.kube/config` as follow.
-Make sure you are the only one with read/write access to this file.
-
 ```
-mkdir -p ~/.kube
-sudo cp /etc/kubernetes/admin.conf ~/.kube/config
-sudo chmod 600 ~/.kube/config
-sudo chown $USER:$USER ~/.kube/config
+kubectl config set-cluster kubernetes --server https://localhost:6443 --certificate-authority pki/kubernetes-ca.crt --embed-certs
+kubectl config set-credentials admin --client-key pki/admin.key --client-certificate pki/admin.crt --embed-certs
+kubectl config set-context admin-local --cluster kubernetes --user admin
+kubectl config use-context admin-local
 ```
 
 ### Check kubelet status
@@ -136,15 +132,6 @@ The file authz :
 * declare SSL certificates used by our authz service so kube-apiserver can trust it.
 
 Edit this file and add replace `<AUTHZ_SERVER_ADDRESS>` by host address and port on which your authorization server is listening.
-
-### Configure kubectl to access your cluster
-
-```
-kubectl config set-cluster kubernetes --server https://localhost:6443 --certificate-authority pki/kubernetes-ca.crt --embed-certs
-kubectl config set-credentials admin --client-key pki/admin.key --client-certificate pki/admin.crt --embed-certs
-kubectl config set-context admin-local --cluster kubernetes --user admin
-kubectl config use-context admin-local
-```
 
 ## Sources
 
