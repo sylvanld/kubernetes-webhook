@@ -137,3 +137,4 @@ The file authz :
 ## Sources
 * [generate pki for your kubernetes cluster](https://medium.com/@oleg.pershin/kubernetes-from-scratch-certificates-53a1a16b5f03)
 * [document how to mount a volume in apiserver pod](https://kubernetes.io/fr/docs/concepts/storage/volumes/)
+* [enable webhook mode for authorizations](https://kubernetes.io/docs/reference/access-authn-authz/webhook/)
