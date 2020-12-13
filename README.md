@@ -87,7 +87,7 @@ Source: https://medium.com/@oleg.pershin/kubernetes-from-scratch-certificates-53
 Next we need to make the PKI (set of certificates) accessible in kube-apiserver.
 The easiest way to do so, is by creating a volume pointing to local file system.
 
-* First we will declare a new volume in kube-apiserver command container. In this example it will be available under `/etc/kube-webhook`.
+* First we will declare a new volume in kube-apiserver command container. In this example it will be available under `/etc/kube-settings/`.
 Edit `/etc/kubernetes/manifest/kube-apiserver.yaml` and add the followings.
 
 ```yaml
@@ -96,13 +96,13 @@ spec:
   - command:
     volumeMounts:
       # declare our volume that will be mounted in 'command' container
-      - mountPath: /etc/kube-webhook
+      - mountPath: /etc/kube-settings
         name: webhook-volume
         readOnly: true
     volumes:
-      # Bind this entire repo to our volume, so it will be available in container under /etc/kube-webhook
+      # Bind this entire repo to our volume, so it will be available in container under /etc/kube-settings
       - hostPath:
-          path: /path/to/this/project/kube-admin
+          path: /path/to/this/project
           type: DirectoryOrCreate
         name: webhook-volume
 ```
@@ -113,9 +113,9 @@ No we must tell kube-apiserver to use newly generated certificates instead of de
 Remember that certificates will be available for kube-apiserver at the mount point we defined previously.
 
 ```
---client-ca-file=/etc/kube-webhook/pki/ca.crt
---tls-cert-file=/etc/kube-webhook/pki/server.crt
---tls-private-key-file=/etc/kube-webhook/pki/server.key
+--client-ca-file=/etc/kube-settings/pki/ca.crt
+--tls-cert-file=/etc/kube-settings/pki/server.crt
+--tls-private-key-file=/etc/kube-settings/pki/server.key
 ```
 
 ### Configure Authorization mode
@@ -125,7 +125,7 @@ Edit `/etc/kubernetes/manifests/kube-apiserver.yaml` and replace `--authorizatio
 
 ```
 --authorization-mode=Webhook
---authorization-webhook-config-file=/etc/kube-webhook/authz.yaml
+--authorization-webhook-config-file=/etc/kube-settings/authz.yaml
 ```
 
 The file authz :
