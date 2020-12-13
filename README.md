@@ -75,6 +75,13 @@ This will generate a few files in `pki/` folder. Interesting ones are
 4. moon-pdp.key : Private key for moon PDP
 5. moon-pdp.crt : Self signed certificate for moon PDP
 
+
+*PKI infrastructure*
+
+![pki infrastructure in kubernetes](https://miro.medium.com/max/776/1*IPCF2B5vs2cyrCsP-sPOvQ.jpeg)
+
+Source: https://medium.com/@oleg.pershin/kubernetes-from-scratch-certificates-53a1a16b5f03
+
 ### Create mount point in apiserver
 
 Next we need to make the PKI (set of certificates) accessible in kube-apiserver.
