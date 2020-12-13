@@ -1,5 +1,23 @@
 #!/bin/bash
 
+read -p "kube-apiserver advertise address: " APISERVER_ADDRESS
+
+## Install pre-requisites
+apt-get update
+apt-get install -y curl
+
+## Install docker CE
+
+# add docker apt repository
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+# install docker from apt sources
+apt-get install -y docker-ce docker-ce-cli containerd.io
+
+
+## Install kubernetes command line tools
+
 # add kubernetes apt repository
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
 apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
@@ -7,3 +25,7 @@ apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 # install kubernetes from apt sources
 apt-get install -y --allow-change-held-packages kubeadm kubelet kubectl
 apt-mark hold kubeadm kubelet kubectl
+
+## Initialize a single node kubernetes cluster
+kubeadm init --v=5 \
+    --apiserver-advertise-address $APISERVER_ADDRESS

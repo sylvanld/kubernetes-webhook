@@ -1,3 +1,0 @@
-#!/bin/bash
-
-kubeadm init --v=5
