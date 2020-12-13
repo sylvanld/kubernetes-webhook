@@ -1,0 +1,131 @@
+#!/bin/bash
+
+PKI_FOLDER=pki
+KUBECONFIG=~/.kube/config
+
+COUNTRY_CODE=FR
+COUNTRY=France
+CITY=Rennes
+COMPANY=Orange
+
+
+generate_company_rootca(){
+	openssl req \
+		-nodes \
+		-subj "/C=${COUNTRY_CODE}/ST=${COUNTRY}/L=${CITY}/O=${COMPANY}/OU=Orange/CN=orange-ca" \
+		-new -x509 \
+		-days 9999 \
+		-keyout ${PKI_FOLDER}/orange-ca.key \
+		-out ${PKI_FOLDER}/orange-ca.crt
+}
+
+generate_kubernetes_certificate(){
+	# create kubernetes private key
+	openssl genrsa -out ${PKI_FOLDER}/kubernetes-ca.key 4096
+	# generate a signing request that must be signed using company root ca
+	openssl req \
+		-new \
+		-nodes \
+		-sha256 \
+		-subj "/C=${COUNTRY_CODE}/ST=${COUNTRY}/L=${CITY}/O=${COMPANY}/OU=Orange France/CN=kubernetes-ca" \
+		-key ${PKI_FOLDER}/kubernetes-ca.key \
+		-out ${PKI_FOLDER}/kubernetes-ca.csr
+	# sign kubernetes cluster root certificate using company CA.
+	openssl x509 \
+		-req \
+		-days 9999 \
+		-sha256 \
+		-CA ${PKI_FOLDER}/orange-ca.crt \
+		-CAkey ${PKI_FOLDER}/orange-ca.key \
+		-set_serial 01 \
+		-extensions req_ext \
+		-in ${PKI_FOLDER}/kubernetes-ca.csr \
+		-out ${PKI_FOLDER}/kubernetes-ca.crt
+}
+
+generate_apiserver_certificate(){
+	# create apiserver private key
+	openssl genrsa -out ${PKI_FOLDER}/kube-apiserver.key 4096
+	# generate a signing request that must be signed using company root ca
+	openssl req \
+		-new \
+		-nodes \
+		-sha256 \
+		-subj "/C=${COUNTRY_CODE}/ST=${COUNTRY}/L=${CITY}/O=${COMPANY}/OU=Orange France/CN=kube-apiserver" \
+		-key ${PKI_FOLDER}/kube-apiserver.key \
+		-out ${PKI_FOLDER}/kube-apiserver.csr
+	# sign kubernetes cluster root certificate using company CA.
+	openssl x509 \
+		-req \
+		-days 9999 \
+		-extfile <(printf "subjectAltName=IP:${APISERVER_ADDRESS},DNS:localhost,DNS:kube-local") \
+		-sha256 \
+		-CA ${PKI_FOLDER}/kubernetes-ca.crt \
+		-CAkey ${PKI_FOLDER}/kubernetes-ca.key \
+		-set_serial 01  \
+		-in ${PKI_FOLDER}/kube-apiserver.csr \
+		-out ${PKI_FOLDER}/kube-apiserver.crt
+}
+
+generate_admin_certificate(){
+	#
+	openssl genrsa -out ${PKI_FOLDER}/admin.key 4096
+	#
+	openssl req \
+		-new \
+		-nodes \
+		-sha256 \
+		-subj "/C=${COUNTRY_CODE}/ST=${COUNTRY}/L=${CITY}/O=${COMPANY}/CN=kubernetes-admin"\
+		-key ${PKI_FOLDER}/admin.key \
+		-out ${PKI_FOLDER}/admin.csr
+	#
+	openssl x509 \
+		-req \
+		-days 9999 \
+		-sha256 \
+		-extfile <(printf "subjectAltName=IP:${APISERVER_ADDRESS},DNS:localhost,DNS:kube-local") \
+		-CA ${PKI_FOLDER}/kubernetes-ca.crt \
+		-CAkey ${PKI_FOLDER}/kubernetes-ca.key \
+		-set_serial 01 \
+		-in ${PKI_FOLDER}/admin.csr \
+		-out ${PKI_FOLDER}/admin.crt
+}
+
+generate_moon_certificate(){
+	#
+	openssl genrsa -out ${PKI_FOLDER}/moon-pdp.key 4096
+	#
+	openssl req \
+		-new \
+		-nodes \
+		-sha256 \
+		-subj "/C=${COUNTRY_CODE}/ST=${COUNTRY}/L=${CITY}/O=${COMPANY}/CN=moon-pdp"\
+		-key ${PKI_FOLDER}/moon-pdp.key \
+		-out ${PKI_FOLDER}/moon-pdp.csr
+	#
+	openssl x509 \
+		-req \
+		-days 9999 \
+		-sha256 \
+		-extfile <(printf "subjectAltName=IP:${APISERVER_ADDRESS},DNS:localhost,DNS:kube-local") \
+		-CA ${PKI_FOLDER}/kubernetes-ca.crt \
+		-CAkey ${PKI_FOLDER}/kubernetes-ca.key \
+		-set_serial 01 \
+		-in ${PKI_FOLDER}/moon-pdp.csr \
+		-out ${PKI_FOLDER}/moon-pdp.crt
+}
+
+generate_pki(){
+	# Create root CA for company, and signed Ca for kubernetes. 
+	# Then generate signed certificate for moon, apiserver and kubectl
+	read -p "kube-apiserver advertise address: " APISERVER_ADDRESS
+	rm -rf ${PKI_FOLDER} && mkdir ${PKI_FOLDER}
+	
+	generate_company_rootca
+	generate_kubernetes_certificate
+	generate_apiserver_certificate
+	generate_admin_certificate
+	generate_moon_certificate
+}
+
+generate_pki

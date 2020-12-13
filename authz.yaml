@@ -9,7 +9,7 @@ clusters:
       # CA for verifying the remote service.
       certificate-authority: /etc/kube-settings/pki/kubernetes-ca.crt
       # URL of remote service to query. Must use 'https'. May not include parameters.
-      server: https://192.168.56.116:8005
+      server: https://<AUTHZ_SERVER_ADDRESS>
 
 # users refers to the API Server's webhook configuration.
 users:

@@ -98,14 +98,14 @@ spec:
     volumeMounts:
       # declare our volume that will be mounted in 'command' container
       - mountPath: /etc/kube-settings
-        name: webhook-volume
+        name: settings-volume
         readOnly: true
     volumes:
       # Bind this entire repo to our volume, so it will be available in container under /etc/kube-settings
       - hostPath:
           path: /path/to/this/project
           type: DirectoryOrCreate
-        name: webhook-volume
+        name: settings-volume
 ```
 
 ### Configure apiserver certificates
@@ -134,7 +134,19 @@ The file authz :
 * defines address on which our authz service is available (for apiserver to know where authz requests must be sent)
 * declare SSL certificates used by our authz service so kube-apiserver can trust it.
 
+Edit this file and add replace `<AUTHZ_SERVER_ADDRESS>` by host address and port on which your authorization server is listening.
+
+### Configure kubectl to access your cluster
+
+```
+kubectl config set-cluster kubernetes --server https://localhost:6443 --certificate-authority pki/kubernetes-ca.crt --embed-certs
+kubectl config set-credentials admin --client-key pki/admin.key --client-certificate pki/admin.crt --embed-certs
+kubectl config set-context admin-local --cluster kubernetes --user admin
+kubectl config use-context admin-local
+```
+
 ## Sources
+
 * [generate pki for your kubernetes cluster](https://medium.com/@oleg.pershin/kubernetes-from-scratch-certificates-53a1a16b5f03)
 * [document how to mount a volume in apiserver pod](https://kubernetes.io/fr/docs/concepts/storage/volumes/)
 * [enable webhook mode for authorizations](https://kubernetes.io/docs/reference/access-authn-authz/webhook/)
