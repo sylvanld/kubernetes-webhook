@@ -9,6 +9,7 @@
   - [Create mount point in apiserver](#create-mount-point-in-apiserver)
   - [Configure apiserver certificates](#configure-apiserver-certificates)
   - [Configure Authorization mode](#configure-authorization-mode)
+- [Sources](#sources)
 
 ## Setup a kubernetes single-node cluster
 
@@ -113,9 +114,9 @@ No we must tell kube-apiserver to use newly generated certificates instead of de
 Remember that certificates will be available for kube-apiserver at the mount point we defined previously.
 
 ```
---client-ca-file=/etc/kube-settings/pki/ca.crt
---tls-cert-file=/etc/kube-settings/pki/server.crt
---tls-private-key-file=/etc/kube-settings/pki/server.key
+--client-ca-file=/etc/kube-settings/pki/kubernetes-ca.crt
+--tls-cert-file=/etc/kube-settings/pki/kube-apiserver.crt
+--tls-private-key-file=/etc/kube-settings/pki/kube-apiserver.key
 ```
 
 ### Configure Authorization mode
@@ -133,14 +134,6 @@ The file authz :
 * defines address on which our authz service is available (for apiserver to know where authz requests must be sent)
 * declare SSL certificates used by our authz service so kube-apiserver can trust it.
 
-# TODO
-
-* document how to create a signed certificate for client
-
-cf https://wiki.archlinux.org/index.php/Easy-RSA
-
-* document how to mount a volume in apiserver pod
-
-(required to use --webhook-config-file... and access certificate declared in webhook config)
-
-https://kubernetes.io/fr/docs/concepts/storage/volumes/
+## Sources
+* [generate pki for your kubernetes cluster](https://medium.com/@oleg.pershin/kubernetes-from-scratch-certificates-53a1a16b5f03)
+* [document how to mount a volume in apiserver pod](https://kubernetes.io/fr/docs/concepts/storage/volumes/)
