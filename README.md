@@ -9,6 +9,7 @@
   - [Create mount point in apiserver](#create-mount-point-in-apiserver)
   - [Configure apiserver certificates](#configure-apiserver-certificates)
   - [Configure Authorization mode](#configure-authorization-mode)
+  - [Configure kubectl to access your cluster](#configure-kubectl-to-access-your-cluster)
 - [Sources](#sources)
 
 ## Setup a kubernetes single-node cluster
