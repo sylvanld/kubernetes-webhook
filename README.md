@@ -9,6 +9,7 @@
   - [Create mount point in apiserver](#create-mount-point-in-apiserver)
   - [Configure apiserver certificates](#configure-apiserver-certificates)
   - [Configure Authorization mode](#configure-authorization-mode)
+  - [Setup a Load-Balancer](#setup-a-load-balancer)
 - [Sources](#sources)
 
 ## Setup a kubernetes single-node cluster
@@ -133,8 +134,57 @@ The file authz :
 
 Edit this file and add replace `<AUTHZ_SERVER_ADDRESS>` by host address and port on which your authorization server is listening.
 
+### Setup a Load-Balancer
+
+We are going to [install MetalLB](https://metallb.universe.tf/installation/) as a LoadBalancer for our local cluster.
+
+* You have to enable strict ARP mode. 
+
+You can achieve this by editing kube-proxy config in current cluster:
+
+```bash
+kubectl edit configmap -n kube-system kube-proxy
+```
+
+and set:
+
+```yaml
+apiVersion: kubeproxy.config.k8s.io/v1alpha1
+kind: KubeProxyConfiguration
+mode: "ipvs"
+ipvs:
+  strictARP: true
+```
+
+* To install MetalLB, apply the manifest:
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/metallb.yaml
+# On first install only
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
+```
+
+* Finally, defines MetalLB configuration. In this example feel free to configure the pool of assignable addresses.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses: # pool of addresses that might be assigned to services
+      - 192.168.56.130-192.168.56.150
+```
+
 ## Sources
 
 * [generate pki for your kubernetes cluster](https://medium.com/@oleg.pershin/kubernetes-from-scratch-certificates-53a1a16b5f03)
 * [document how to mount a volume in apiserver pod](https://kubernetes.io/fr/docs/concepts/storage/volumes/)
 * [enable webhook mode for authorizations](https://kubernetes.io/docs/reference/access-authn-authz/webhook/)
+* [configure load balancer for non-cloud kubernetes instance](https://metallb.universe.tf/installation/)
