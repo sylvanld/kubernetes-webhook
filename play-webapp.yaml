@@ -1,0 +1,44 @@
+# Defines play namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: play
+---
+# Defines deployment play-frontend
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: play-frontend
+  namespace: play
+  labels:
+    app: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: everrest/play-frontend
+        ports:
+        - containerPort: 80
+---
+# Defines service play-frontend
+apiVersion: v1
+kind: Service
+metadata:
+  name: play-frontend
+  namespace: play
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
